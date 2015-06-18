@@ -1,0 +1,139 @@
+﻿@{
+    ViewBag.Title = "SignUp";
+}
+
+@model Onlinecloth.Models.User
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Content/bootstrap.js"></script>
+
+    <script src="@Url.Content("~/Scripts/jquery.validate.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.js")" type="text/javascript"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>SignUp</title>
+</head>
+<body style="min-height:initial;">
+   
+    <div>
+        <div>
+            <section>
+                <div class="row">
+
+                    <div class="container">
+                        <h2 style="text-align:center;">Create New Account</h2>
+                        <div id="loginbox" style="margin-top: 50px;background-color:lightblue;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <div class="panel-title">Sign Up!</div>
+                                </div>
+
+                                @*<div style="padding-top:30px" class="panel-body">*@
+
+                                    <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+
+                                @using (Html.BeginForm("Add", "Home", FormMethod.Post))
+                                {
+                                        @Html.AntiForgeryToken()
+                                        @Html.ValidationSummary(true)
+                                        
+                                            <ul>
+                                                <li style="display:none"></li>
+                                            </ul>
+                                        @*</div>*@
+                                        <div style="margin-bottom: 25px" class="input-group">
+                                            
+                                            @Html.LabelFor(m => m.Email)<br />
+                                            @Html.TextBoxFor(m => m.Email, new{ type= "Email"})<br />
+                                            @Html.ValidationMessageFor(m => m.Email)
+                                            <input type="button" id="b1" value="Check" />
+                                            <div id="result"></div>
+                                        </div>
+
+                                        <div style="margin-bottom: 25px" class="input-group">
+                                           @Html.LabelFor(m => m.Password)<br />
+                                            @Html.TextBoxFor(m => m.Password, new { type = "password" })
+                                            @Html.ValidationMessageFor(m => m.Password)
+                                        </div>
+                                        
+                                        <!--OK-->
+                                        
+                                        <div style="margin-bottom: 25px" class="input-group">
+                                            @Html.LabelFor(m => m.PhoneNumber)<br />
+                                            @Html.TextBoxFor(m => m.PhoneNumber)
+                                            @Html.ValidationMessageFor(m => m.PhoneNumber)
+                                        </div>
+                                        <div style="margin-bottom: 25px" class="input-group">
+                                            @Html.LabelFor(m => m.Address)<br />
+                                            @Html.TextBoxFor(m => m.Address)
+                                            @Html.ValidationMessageFor(m => m.Address)
+                                        </div>
+                                        <div style="margin-bottom: 25px" class="input-group">
+                                          @Html.LabelFor(m => m.Gender)<br />
+                                          @Html.TextBoxFor(m => m.Gender)
+                                            @Html.ValidationMessageFor(m => m.Gender)
+                                        </div>
+                        
+
+
+                                        <div style="margin-top:10px" class="form-group">
+                                            <!-- Button -->
+                                            <p style="color:red">  @ViewBag.alert </p>
+                                            
+                                            <div id="result" style="float:right;"></div>
+                                            <br />
+                                            <br />
+                                            <div class="col-sm-12 controls">
+                                                <button type="submit" class="btn btn-default btn-success">Register</button>
+
+
+                                            </div>
+                                        </div>
+
+                                }
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="clear"></div>
+            </section>
+        </div>
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    <script>
+
+        $(document).ready(function () {
+
+            $('#checking').hide();
+
+            $('#b1').click(function () {
+
+                var userName = $('#Email').val();
+
+                //alert('User Name ='+ userName);
+                $('#checking').show();
+                $.getJSON("/home/CheckEmail?Email=" + userName, function (data) {
+                    $('#checking').hide();
+                    if (data) {
+                        $('#result').text("Email already exists in database");
+
+                    }
+                    else {
+                        $('#result').text("Email is available");
+                    }
+                });
+
+            });
+
+        });
+    </script>
+
+</body>
+</html>
+

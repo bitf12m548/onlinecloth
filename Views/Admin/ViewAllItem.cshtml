@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "ViewAllUser";
+    Layout = "~/Views/Shared/layout2.cshtml";
+}
+
+<h2 class="text-center"></h2>
+
+@foreach (Onlinecloth.Models.Item e in @ViewBag.Item)
+{
+    <div class="row" >
+        <div class="col-md-4">
+
+            <img width="200" height="200" src="~/Images/@e.Photo" />
+        </div>
+        <div class="col-md-6">
+            <a href="~/Admin/DeleteItem?id=@e.Id" style="margin-top:1%" class="btn btn-default btn-danger">Delete</a><br />
+            <font size="3">
+                <strong>Item ID: @e.Id </strong><br />
+                <strong>Name: @e.Name </strong><br />
+                <strong>Destription:  @e.Description</strong><br />
+            </font>
+        </div>
+    </div>
+    <hr />
+}
+

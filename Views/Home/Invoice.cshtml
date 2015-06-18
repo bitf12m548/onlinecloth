@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Invoice";
+    Layout = "~/Views/Shared/layout2.cshtml";
+    var sum = 0;
+}
+@model List<Onlinecloth.Models.Order>
+@using Onlinecloth.Models;
+
+<html>
+
+<body>
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+
+
+                <hr />
+                <h1>Your Invoice</h1>
+                
+                <hr />
+               
+
+                <div class="row">
+                    
+                    @foreach (var s in Model)
+                    {    
+                        if (s.UserId == (int)Session["userID"])
+                        {
+
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+                            <div class="thumbnail">
+
+                                <img width="200" height="200" src="~/Images/@s.Item.Photo" alt="">
+                            </div>
+                            <div class="caption">
+                                <h4>@s.Item.Name</h4>
+                               
+                                <h4>
+                                    Price Rs. @s.Item.Price<br />
+                                    <input type="hidden" @(sum = sum + int.Parse(s.Item.Price)) />
+                                </h4>
+                            </div>
+                        </div>
+                        }
+                    }
+                </div>
+                <h1> Total:Rs @(sum)</h1> 
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- /.container -->
+    <div class="container">
+        <hr>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>

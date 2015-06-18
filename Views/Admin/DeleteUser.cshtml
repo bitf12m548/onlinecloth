@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "DeleteUser";
+   Layout = "~/Views/Shared/layout2.cshtml";
+}
+
+<form action="/Admin/Delete" method="post" style="width:70%; margin-right: auto; margin-left: auto; border: 1px">
+    <h2>Delete  User</h2>
+    <br>
+    <div class="form-group">
+
+        <br />
+        <div class="row">
+            <div class="col-md-2 text-right">
+                Enter ID:
+            </div>
+            <div class="col-md-4">
+                <input type="text" name="id" style="color:black" class="form-control">
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div style="margin-left:15%" class="col-md-3">
+                <input type="submit">
+            </div>
+        </div>
+    </div>
+</form>

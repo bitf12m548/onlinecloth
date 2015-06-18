@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "showWishlist";
+}
+@model List<Onlinecloth.Models.WishList>
+@using Onlinecloth.Models;
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<style>
+    .carousel-inner > .item > img,
+    .carousel-inner > .item > a > img {
+        width: 100%;
+        margin: auto;
+    }
+</style>
+<html>
+
+<body>
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+          
+            <div class="col-md-12">
+               
+                            <hr />
+                            <h1>Your WishList</h1>
+                            <hr />
+                <div class="row">
+
+                    @foreach (var s in Model)
+                    {
+                        if(s.UserId==(int)Session["userID"])
+                        {
+                            <div class="col-sm-4 col-lg-4 col-md-4">
+                                <div class="thumbnail">
+
+                                    <img src="~/Images/@s.Item.Photo" alt=""></div>
+
+                                    <div class="caption">
+                                        <h4>@s.Item.Name</h4>
+                                        <h4>@s.Item.Description</h4>
+                                        <h4>Price Rs. @s.Item.Price
+                                        
+                                                                                        @if (Session["user"] != null)
+                                            {
+                                                User u = (User)Session["user"];
+                                                Session["userID"] = u.Id;
+                                                <a href="~/Home/AddToCart?itemId=@s.ItemId" class="btn btn-default btn-success">Add To Cart</a><br />
+                                            <a href="~/Home/DeleteWish?itemId=@s.Id" style="margin-top:1%" class="btn btn-default btn-danger">Delete From WishList</a><br />
+                                                
+                                            }
+                                        </h4>
+                                    </div>
+                                </div>
+                   
+                    }
+                    }
+                </div>
+
+                </div>
+            </div>
+     </div>
+
+    <!-- /.container -->
+    <div class="container">
+        <hr>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+

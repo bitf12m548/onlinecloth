@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+@model List<Onlinecloth.Models.Item>
+@using Onlinecloth.Models;
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Search</title>
+</head>
+<body>
+    
+    <div>
+        @foreach (var s in Model)
+        {
+            
+
+                <div class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="thumbnail">
+
+                        <img src="~/Images/@s.Photo" alt="">
+                    </div>
+                    <div class="caption">
+                        <h4>@s.Name</h4>
+                        <h4>@s.Description</h4>
+                        <h4>
+                            Price Rs. @s.Price<br />
+                                              @if(Session["user"] != null)
+                                            {
+                                                User u = (User)Session["user"];
+                                            Session["userID"] = u.Id;
+                            <a href="~/Home/AddToCart?itemId=@s.Id" class="btn btn-default btn-success">Add To Cart</a><br />
+                                              }
+                        </h4>
+                    </div>
+                </div>
+           
+        }
+    </div>
+</body>
+</html>
