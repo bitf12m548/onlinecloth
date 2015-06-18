@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/layout2.cshtml";
 }
 
-<form action="/Admin/Add_Item" method="post" style="width:100%; margin-right: auto; margin-left: auto; border: 1px">
+<form action="/Admin/Add_Item" method="post" style="width:100%; margin-right: auto; margin-left: auto; border: 1px" enctype="multipart/form-data">
     <h2>Add Item </h2>
     <br>
     <div class="form-group">
@@ -35,13 +35,17 @@
                 <input type="text" name="Price" style="color:black" class="form-control">
             </div>
         </div>
-        <br />
-        
-        <div class="row">
-            <div style="margin-left:15%" class="col-md-3">
-                <input type="submit">
-            </div>
+        <div class="col-md-4">
+            Upload Image: <input type="file" name="file" />
         </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div style="margin-left:15%" class="col-md-3">
+            <input type="submit">
+        </div>
+    </div>
     </div>
 </form>
 
