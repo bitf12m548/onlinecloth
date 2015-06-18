@@ -13,13 +13,17 @@
     <div class="row" id="main-content">
         <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
             <div class="navbar-header" id="w" style="background-color:aliceblue; position:relative; align-content:center;">
-                <form action="/Home/Search" method="post">
+                @using (Html.BeginForm("Search", "Home", FormMethod.Post))
+{                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
                     <fieldset style=" font-size:medium; margin:60px; grid-row-span:inherit ">
                         <legend style="color:seagreen">Please SignIn or Login</legend>
                             @Html.LabelFor(m=>m.Email)<br />
                         @Html.TextBoxFor(m=>m.Email)<br />
+                        @Html.ValidationMessageFor(m => m.Email)
                         @Html.LabelFor(m=>m.Password)<br />
                         @Html.TextBoxFor(m => m.Password, new { type = "password" })
+                        @Html.ValidationMessageFor(m => m.Password)
                         @*<input type="email" class="input-block-level" placeholder="Enter Email" name="Email" required /> <br />
 
                         <label>
@@ -31,7 +35,7 @@
                         <input type="submit" class="btn btn-primary" value="Login" />
                         <a href="/Home/SignUp" class="btn btn-info">Create Account</a>
                     </fieldset>
-                </form>
+                }
             </div>
 
         </div>
