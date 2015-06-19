@@ -1,193 +1,70 @@
 ﻿@{
-    ViewBag.Title = "Kids";
+    ViewBag.Title = "Men";
 }
+@model List<Onlinecloth.Models.Item>
+@using Onlinecloth.Models;
 
 <html>
+
 <body>
     <!-- Page Content -->
     <div class="container">
-       
-                <div class="row">
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group">
 
-                            <img src="~/Content/img/15-home_default.jpg" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">Rs 1200</h4>
-                                <h4>
-                                    <a href="#">New Arrival</a>
-                                </h4>
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-
-                            <img src="~/Content/img/3-home_default.jpg" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">Rs 900</h4>
-                                <h4>
-                                    <a href="#">New Arrival</a>
-                                </h4>
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-
-                            <img src="~/Content/img/37-home_default.jpg" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">Rs 750</h4>
-                                <h4>
-                                    <a href="#">New Arrival</a>
-                                </h4>
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-
-                            <img src="~/Content/img/56-home_default.jpg" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">Rs 899.00</h4>
-                                <h4>
-                                    <a href="#">New Arrival</a>
-                                </h4>
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-
-                            <img src="~/Content/img/51-home_default.jpg" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">Rs 1350</h4>
-                                <h4>
-                                    <a href="#">New Arrival</a>
-                                </h4>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-
-
-                            <img src="~/Content/img/25-home_default.jpg" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">Rs 550</h4>
-                                <h4>
-                                    <a href="#">New Arrival</a>
-                                </h4>
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-
-                            <img src="~/Content/img/55-home_default.jpg" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">Rs 1200</h4>
-                                <h4>
-                                    <a href="#">New Arrival</a>
-                                </h4>
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-
-                            <img src="~/Content/img/63-home_default.jpg" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">Rs 900</h4>
-                                <h4>
-                                    <a href="#">New Arrival</a>
-                                </h4>
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-
-                            <img src="~/Content/img/13-home_default.jpg" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">Rs 750</h4>
-                                <h4>
-                                    <a href="#">New Arrival</a>
-                                </h4>
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-
-                            <img src="~/Content/img/42-home_default.jpg" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">Rs 899</h4>
-                                <h4>
-                                    <a href="#">New Arrival</a>
-                                </h4>
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-
-                            <img src="~/Content/img/51-home_default.jpg" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">Rs 550</h4>
-                                <h4>
-                                    <a href="#">New Arrival</a>
-                                </h4>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <div class="thumbnail">
-
-
-                            <img src="~/Content/img/61-home_default.jpg" alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">Rs 1350</h4>
-                                <h4>
-                                    <a href="#">New Arrival</a>
-                                </h4>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-
-
-
+                    <a style="color:blue;" href="/home/Men" class="list-group-item">Men</a>
+                    <a style="color:blue;" href="/home/Women" class="list-group-item">Women</a>
+                    
                 </div>
             </div>
+            <div class="col-md-12">
+
+
+                <hr />
+                <h1>Kids</h1>
+               
+                <hr />
+
+
+                <div class="row">
+
+                    @foreach (var s in Model)
+                    {
+                        if (s.Description.Equals("Kids"))
+                        {
+                            <div class="col-sm-4 col-lg-4 col-md-4">
+                                <div class="thumbnail">
+
+                                    <img src="~/Content/img/@s.Photo" alt="">
+                                </div>
+                                <div class="caption">
+                                    <h4>@s.Name</h4>
+                                    
+                                    <h4>
+                                        Price Rs. @s.Price
+
+                                        @if (Session["user"] != null)
+                                        {
+                                            User u = (User)Session["user"];
+                                            Session["userID"] = u.Id;
+                                            <a href="~/Home/AddToCart?itemId=@s.Id" class="btn btn-default btn-success">Add To Cart</a><br />
+                                            <a href="~/Home/AddToWishList?itemId=@s.Id" class="btn btn-default btn-info">Add To WishList</a><br />
+                                        }
+                                    </h4>
+                                </div>
+                            </div>
+
+                        }
+                    }
+                </div>
+
+            </div>
+
         </div>
+
     </div>
+
 
     <!-- /.container -->
     <div class="container">
@@ -201,7 +78,6 @@
             </div>
         </footer>
     </div>
+
 </body>
 </html>
-
-

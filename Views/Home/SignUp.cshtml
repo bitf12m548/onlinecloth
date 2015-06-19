@@ -73,7 +73,18 @@
                                         </div>
                                         <div style="margin-bottom: 25px" class="input-group">
                                           @Html.LabelFor(m => m.Gender)<br />
-                                          @Html.TextBoxFor(m => m.Gender)
+                                          
+                                            @{
+
+                                    var listItems = new List<SelectListItem>()
+         {
+            new SelectListItem {Text = "Male",   Value = "M"},
+            new SelectListItem {Text = "Female", Value = "F"}
+        };
+
+                                        @Html.DropDownListFor(m => m.Gender, listItems, string.Empty)
+                                            }
+                                            
                                             @Html.ValidationMessageFor(m => m.Gender)
                                         </div>
                         
@@ -84,10 +95,9 @@
                                             <p style="color:red">  @ViewBag.alert </p>
                                             
                                             <div id="result" style="float:right;"></div>
-                                            <br />
-                                            <br />
+                                           
                                             <div class="col-sm-12 controls">
-                                                <button type="submit" class="btn btn-default btn-success">Register</button>
+                                                <button type="submit" class="btn btn-default btn-success" >Register</button>
 
 
                                             </div>

@@ -1,6 +1,6 @@
 ﻿@{
     ViewBag.Title = "Invoice";
-    Layout = "~/Views/Shared/layout2.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
     var sum = 0;
 }
 @model List<Onlinecloth.Models.Order>
@@ -32,7 +32,7 @@
                         <div class="col-sm-4 col-lg-4 col-md-4">
                             <div class="thumbnail">
 
-                                <img width="200" height="200" src="~/Images/@s.Item.Photo" alt="">
+                                <img width="200" height="200" src="~/Content/img/@s.Item.Photo" alt="">
                             </div>
                             <div class="caption">
                                 <h4>@s.Item.Name</h4>
