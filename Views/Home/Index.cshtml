@@ -112,13 +112,10 @@
                                         
                                         <h4>Price Rs. @s.Price
                                         
-                                            @if(Session["user"] != null)
-                                            {
-                                                User u = (User)Session["user"];
-                                            Session["userID"] = u.Id;
+                                          
                                             <a href="~/Home/AddToCart?itemId=@s.Id" class="btn btn-default btn-success">Add To Cart</a><br />
                                             <a href="~/Home/AddToWishList?itemId=@s.Id" class="btn btn-default btn-info">Add To WishList</a><br />
-                                            }
+                                            
                                             </h4>
                                     </div>
                                 </div>
